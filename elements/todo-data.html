@@ -1,0 +1,28 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+
+<dom-moudule id="todo-data">
+  <script>
+    Polymer({
+      is: "todo-data", //element name
+
+      //set element properties
+      properties: {
+        todos: {
+          notify: true,
+          value: function() {
+            if (
+              typeof window.localStorage.getItem("stored-todos") !=
+                "undefined" &&
+              window.localStorage.getItem("stored-todos") != null
+            ) {
+              return JSON.parse(window.localStorage.getItem("stored-todos"));
+            } else {
+              window.localStorage.setItem("stored-todos", []);
+              return [];
+            }
+          }
+        }
+      }
+    });
+  </script>
+</dom-moudule>

@@ -1,0 +1,14 @@
+{
+  "name": "todo-app",
+  "authors": ["tarunbhatt8 <tarunbhatt.cse@gmail.com>"],
+  "description": "tarun's to do app",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": ["**/.*", "node_modules", "bower_components", "test", "tests"],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.2.4",
+    "iron-elements": "1.0.8",
+    "paper-elements": "^1.0.7"
+  }
+}

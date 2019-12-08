@@ -1,0 +1,67 @@
+<link rel="import" href="../bower_components/polymer/polymer.html" />
+<link
+  rel="import"
+  href="../bower_components/paper-checkbox/paper-checkbox.html"
+/>
+<link
+  rel="import"
+  href="../bower_components/paper-material/paper-material.html"
+/>
+<link
+  rel="import"
+  href="../bower_components/paper-icon-button/paper-icon-button.html"
+/>
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html" />
+
+<dom-module id="todo-item">
+  <style>
+    paper-material {
+      padding: 10px 0 10px 10px;
+    }
+    .delete-button {
+      color: darkblue;
+      margin: 0 0 0 90%;
+      bottom: 9px;
+    }
+    .delete-button:hover {
+      color: red;
+    }
+    iron-icon {
+      --iron-icon-width: 40px;
+      --iron-icon-height: 40px;
+    }
+
+    paper-checkbox {
+      /* --paper-checkbox-unchecked-background-color: red; */
+      --paper-checkbox-unchecked-color: red;
+
+      --paper-checkbox-label-checked: {
+        text-decoration: line-through;
+      }
+    }
+  </style>
+  <template>
+    <paper-material elevation="2">
+      <paper-checkbox checked="{{todo.done}}" on-tap="_monitorTap">
+        <label>{{todo.name}}</label>
+      </paper-checkbox>
+      <paper-icon-button class="delete-button" icon="delete" on-tap="_delete">
+      </paper-icon-button>
+    </paper-material>
+  </template>
+
+  <script>
+    Polymer({
+      is: "todo-item",
+      textClass: "completed-items",
+
+      _delete: function() {
+        this.fire("delete", this.todo);
+      },
+      _monitorTap: function() {
+        // Store
+        window.localStorage.setItem("stored-todos", JSON.stringify(this.todos));
+      }
+    });
+  </script>
+</dom-module>

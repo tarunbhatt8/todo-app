@@ -1,0 +1,45 @@
+<DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <link rel="import" href="./elements/elements.html" />
+      <title>Just Do It!</title>
+
+      <style>
+        body {
+          background: lightcyan;
+          margin: 5% 25% 0 25%;
+        }
+        h1 {
+          background: lightblue;
+          margin: 0 25% 0 25%;
+          padding: 0 0 0 20%;
+        }
+        h3 {
+          padding: 0 0 0 42%;
+        }
+        #completed-item {
+          text-decoration: line-through;
+        }
+      </style>
+      <!-- JavaScript libraries -->
+      <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    </head>
+    <body>
+      <h1 id="app-name"></h1>
+      <br />
+      <todo-view></todo-view>
+      <br />
+    </body>
+
+    <script>
+      // Store
+      window.localStorage.setItem("appName", "To-Do");
+
+      // Retrieve
+      var appName = window.localStorage.getItem("appName");
+      console.log(appName);
+      document.getElementById("app-name").innerHTML = appName;
+    </script>
+  </html></DOCTYPE
+>
